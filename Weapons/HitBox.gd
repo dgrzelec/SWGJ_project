@@ -1,6 +1,7 @@
 # Detected by HitBox
-class_name HitBox, "HitBox.svg"
 extends Area2D
+
+class_name HitBox, "HitBox.svg"
 
 export var damage := 10
 

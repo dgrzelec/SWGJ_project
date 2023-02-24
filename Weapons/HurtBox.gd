@@ -1,6 +1,7 @@
 # Allows its owner to detect hits and take damage
-class_name HurtBox, "HurtBox.svg"
 extends Area2D
+
+class_name HurtBox, "HurtBox.svg"
 
 
 func _init() -> void:
