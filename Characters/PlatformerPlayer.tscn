@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://art/stick_man/animations1.png" type="Texture" id=1]
 [ext_resource path="res://Characters/PlatformerPlayer.gd" type="Script" id=2]
+[ext_resource path="res://Weapons/BaseWeapon.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -174,6 +175,9 @@ vframes = 5
 __meta__ = {
 "_editor_description_": "w"
 }
+
+[node name="Weapon" parent="Sprite" instance=ExtResource( 3 )]
+position = Vector2( 264, -464 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )

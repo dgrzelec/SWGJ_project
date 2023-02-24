@@ -6,7 +6,9 @@ signal player_interact
 
 onready var _animation_player = $AnimationPlayer
 onready var _sprite = $Sprite
+onready var _weapon = $Sprite/Weapon
 
+const bullet = preload("res://Weapons/Bullets/RifleBullet.tscn")
 #states
 var jumping = false
 var midair = false
@@ -40,11 +42,11 @@ var left_platform_time = 0.0
 var jump_time = 0.0
 
 func _ready():
-
+	_weapon.set_bullet_type(bullet)
 	_animation_player.play("idle")
 
 func get_input():
-	if Input.is_action_just_pressed("inteact"):
+	if Input.is_action_just_pressed("interact"):
 		emit_signal("player_interact", self)
 	
 	if Input.is_action_pressed("jump"):
@@ -53,11 +55,17 @@ func get_input():
 		buffer_jump()
 	
 	direction = 0
+	
 	if Input.is_action_pressed("left"):
 		direction -= 1
+		_weapon.shoot_dir = Vector2.LEFT
 	if Input.is_action_pressed("right"):
 		direction += 1
-
+		_weapon.shoot_dir = Vector2.RIGHT
+	
+	if Input.is_action_just_pressed("shoot"):
+		
+		_weapon.shoot()
 
 func _physics_process(delta):
 	get_input()
