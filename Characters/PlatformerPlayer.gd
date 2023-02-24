@@ -3,6 +3,7 @@ extends KinematicBody2D
 class_name Player
 
 signal player_interact
+signal player_deathblow
 
 onready var _animation_player = $AnimationPlayer
 onready var _sprite = $Sprite
@@ -151,3 +152,7 @@ func buffer_jump():
 	
 func apply_gravity(delta):
 	velocity.y += gravity_acc * delta
+
+func die():
+	emit_signal("player_deathblow")
+	queue_free()
