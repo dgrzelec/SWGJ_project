@@ -72,7 +72,10 @@ func _physics_process(delta):
 	
 	if direction:
 		flip_sprite = !bool(direction + 1)
-	_sprite.flip_h = flip_sprite
+	if flip_sprite and _sprite.scale.x > 0:
+		_sprite.scale.x *= -1
+	elif not flip_sprite and _sprite.scale.x < 0:
+		_sprite.scale.x *= -1
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	## check for state change
