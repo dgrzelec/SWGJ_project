@@ -17,7 +17,7 @@ var direction = 0 #left -1/right 1
 
 #params
 var max_speed = 400.0
-var max_speed_y = 600.0
+var max_speed_y = 800.0
 var forward_acc = 1500.0
 var back_acc = 2000.0
 
@@ -28,7 +28,7 @@ var jump_speed = 500.0
 var jump_time_limit = 0.5
 var jump_buffer_time = 2.0 * 1.0/60.0
 
-var stay_on_platform_time_limit = 5 * 1.0/60.0
+var stay_on_platform_time_limit = 4 * 1.0/60.0
 
 #vars
 var speed = 0.0
@@ -101,14 +101,10 @@ func _physics_process(delta):
 			
 	
 	if direction:
-		#### animation
-#			if not _animation_player.is_playing():
+
 		if not midair and not jumping:
-#			if velocity.x < max_speed/2.0:
-#				_animation_player.play("walking")
-#			else: _animation_player.play("running")
+
 			_animation_player.play("running", -1, velocity.x/max_speed)
-		###########################
 		
 		if sign(velocity.x) == direction:
 			velocity.x += direction * forward_acc * delta

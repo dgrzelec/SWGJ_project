@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://stick_man/animations1.png" type="Texture" id=1]
-[ext_resource path="res://PlatformerPlayer.gd" type="Script" id=2]
+[ext_resource path="res://art/stick_man/animations1.png" type="Texture" id=1]
+[ext_resource path="res://Characters/PlatformerPlayer.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
