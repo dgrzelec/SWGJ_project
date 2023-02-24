@@ -1,0 +1,93 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://art/campfire.png" type="Texture" id=1]
+[ext_resource path="res://art/spark.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 256, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 512, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 256, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 256, 256, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 512, 256, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 512, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 256, 512, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "fire",
+"speed": 12.0
+} ]
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0, 0.225806, 0.76129, 1 )
+colors = PoolColorArray( 0.994965, 1, 0.953125, 1, 0.983398, 0.903907, 0.35725, 1, 1, 0.533333, 0, 0.92549, 1, 0.380392, 0.101961, 0 )
+
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+lifetime_randomness = 0.27
+emission_shape = 2
+emission_box_extents = Vector3( 50, 20, 1 )
+flag_align_y = true
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 10.0
+gravity = Vector3( -900, 200, 0 )
+initial_velocity = 277.23
+initial_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.3
+color_ramp = SubResource( 11 )
+
+[node name="Campfire" type="AnimatedSprite"]
+position = Vector2( 148, 138 )
+frames = SubResource( 9 )
+animation = "fire"
+frame = 1
+playing = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 4, -46 )
+amount = 5
+lifetime = 0.8
+speed_scale = 2.0
+explosiveness = 0.17
+randomness = 0.2
+visibility_rect = Rect2( -309.87, -155.328, 359.474, 171.04 )
+process_material = SubResource( 12 )
+texture = ExtResource( 2 )
