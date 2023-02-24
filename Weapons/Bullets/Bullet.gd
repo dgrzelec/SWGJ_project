@@ -19,7 +19,7 @@ func _ready():
 	set_as_toplevel(true)
 
 	hitbox.damage = damage
-	look_at(Vector2.RIGHT) #should be vector2
+	look_at(position + direction) #should be vector2
 	
 
 	timer.connect("timeout", self, "queue_free")
