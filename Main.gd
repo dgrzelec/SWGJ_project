@@ -4,6 +4,8 @@ extends Node
 
 func start_game():
 	print("game started")
+	$UI.show()
+	$MainMenu.hide()
 	
 #choosing level etc
 func _ready():

@@ -13,28 +13,24 @@ margin_left = -1.0
 margin_right = -1.0
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-margin_left = 559.0
-margin_top = 800.0
-margin_right = 1045.0
-margin_bottom = 866.0
+margin_left = 548.0
+margin_top = 799.0
+margin_right = 1034.0
+margin_bottom = 865.0
 theme = ExtResource( 2 )
 value = 60.0
 percent_visible = false
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="Label" type="Label" parent="."]
-margin_left = 764.0
-margin_top = 831.0
-margin_right = 839.0
-margin_bottom = 845.0
+[node name="Label" type="Label" parent="HealthBar"]
+anchor_left = -0.065
+margin_left = 205.0
+margin_top = 31.0
+margin_right = 283.0
+margin_bottom = 45.0
+size_flags_vertical = 6
 text = "placeholder"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="WeponUI" type="HBoxContainer" parent="."]
 margin_left = 25.0
