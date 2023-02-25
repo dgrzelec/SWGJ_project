@@ -19,6 +19,8 @@ var jump_button = false
 var direction = 0 #left -1/right 1
 
 #params
+export var healt_points = 200.0
+
 var max_speed = 400.0
 var max_speed_y = 800.0
 var forward_acc = 1500.0
