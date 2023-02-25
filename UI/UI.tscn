@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/weapons/base_weapon.png" type="Texture" id=1]
+[ext_resource path="res://UI/progressbar.tres" type="Theme" id=2]
+[ext_resource path="res://art/weapons/bullet.png" type="Texture" id=3]
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = -1.0
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+margin_left = 559.0
+margin_top = 800.0
+margin_right = 1045.0
+margin_bottom = 866.0
+theme = ExtResource( 2 )
+value = 60.0
+percent_visible = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 764.0
+margin_top = 831.0
+margin_right = 839.0
+margin_bottom = 845.0
+text = "placeholder"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WeponUI" type="HBoxContainer" parent="."]
+margin_left = 25.0
+margin_top = 798.0
+margin_right = 361.0
+margin_bottom = 878.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Weapon" type="Control" parent="WeponUI"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+
+[node name="WeaponType" type="TextureRect" parent="WeponUI/Weapon"]
+margin_left = 1.0
+margin_right = 81.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+
+[node name="Bullet1" type="Control" parent="WeponUI"]
+margin_left = 84.0
+margin_right = 164.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+
+[node name="BulletType1" type="TextureRect" parent="WeponUI/Bullet1"]
+margin_left = 3.0
+margin_right = 83.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+size_flags_horizontal = 12
+size_flags_vertical = 12
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Bullet2" type="Control" parent="WeponUI"]
+margin_left = 168.0
+margin_right = 248.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+
+[node name="BulletType2" type="TextureRect" parent="WeponUI/Bullet2"]
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 79.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 80, 80 )
+size_flags_horizontal = 12
+size_flags_vertical = 12
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Bullet3" type="Control" parent="WeponUI"]
+margin_left = 252.0
+margin_right = 332.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+
+[node name="BulletType3" type="TextureRect" parent="WeponUI/Bullet3"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
