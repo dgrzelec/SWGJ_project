@@ -443,7 +443,7 @@ scale = Vector2( 1.5, 1.5 )
 position = Vector2( 0, -104 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 9 )
-animation = "running"
+animation = "idle"
 centered = false
 offset = Vector2( -550, -480 )
 __meta__ = {
@@ -451,17 +451,20 @@ __meta__ = {
 }
 
 [node name="BackPaw" type="Sprite" parent="Sprite/BodySprite"]
+visible = false
 show_behind_parent = true
 position = Vector2( 72, 0 )
 texture = ExtResource( 4 )
 offset = Vector2( -125, 0 )
 
 [node name="FrontPaw" type="Sprite" parent="Sprite/BodySprite"]
+visible = false
 position = Vector2( -32, 0 )
 texture = ExtResource( 9 )
 offset = Vector2( -25, 20 )
 
 [node name="Weapon" parent="Sprite/BodySprite/FrontPaw" instance=ExtResource( 3 )]
+visible = false
 show_behind_parent = true
 position = Vector2( -18.7837, 193.74 )
 rotation = 2.09439

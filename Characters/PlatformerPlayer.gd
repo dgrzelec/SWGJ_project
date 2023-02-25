@@ -63,7 +63,7 @@ func get_input():
 		direction += 1
 		_weapon.shoot_dir = Vector2.RIGHT
 	
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot"):
 		
 		_weapon.shoot()
 
