@@ -26,7 +26,8 @@ func take_damage(damage):
 	print("OWO master, punish me more, I took damage ", damage)
 
 func shoot_periodically(time_period: float):
-	_weapon.shoot()
+	if _weapon.can_fire:
+		_weapon.shoot()
 	yield(get_tree().create_timer(time_period), "timeout")
 
 

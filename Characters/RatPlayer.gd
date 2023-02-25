@@ -7,12 +7,14 @@ signal player_interact
 onready var _animation_player = $AnimationPlayer
 onready var _sprite = $Sprite
 onready var _weapon = $Sprite/BodySprite/FrontPaw/Weapon
+onready var _paw = $Sprite/BodySprite/FrontPaw
 
 const bullet = preload("res://Weapons/Bullets/RifleBullet.tscn")
 const bullet_layer = 8
 #states
 var jumping = false
 var midair = false
+var has_weapon = true
 
 #controls
 var jump_button = false
@@ -65,10 +67,10 @@ func get_input():
 	
 	if Input.is_action_pressed("left"):
 		direction -= 1
-		_weapon.shoot_dir = Vector2.LEFT
+#		_weapon.shoot_dir = Vector2.LEFT
 	if Input.is_action_pressed("right"):
 		direction += 1
-		_weapon.shoot_dir = Vector2.RIGHT
+#		_weapon.shoot_dir = Vector2.RIGHT
 	
 	if Input.is_action_pressed("shoot"):
 		
@@ -121,9 +123,11 @@ func _physics_process(delta):
 	if direction:
 
 		if not midair and not jumping:
-
-			_animation_player.play("running", -1, velocity.x/max_speed)
-		
+			if has_weapon:
+				_animation_player.play("running_with_weapon")
+			else:				
+				_animation_player.play("running_no_weapon")
+			
 		if sign(velocity.x) == direction:
 			velocity.x += direction * forward_acc * delta
 			
@@ -134,7 +138,10 @@ func _physics_process(delta):
 	else: #direction==0
 		# animation
 		if not midair and not jumping:
-			_animation_player.play("idle")
+			if has_weapon:
+				_animation_player.play("idle_with_weapon")
+			else:				
+				_animation_player.play("idle")
 		###############
 		
 		velocity.x -= sign(velocity.x) * back_acc * delta
@@ -147,6 +154,10 @@ func _physics_process(delta):
 	# some gravity to keep character on the ground
 	velocity.y += 100 * delta
 
+	#weapons
+	var mouse_pos = get_global_mouse_position()
+	point_paw_at(mouse_pos)
+	_weapon.shoot_dir = _weapon.get_node("ShootPosition").global_position.direction_to(mouse_pos)
 	
 func coyote_time():
 	yield(get_tree().create_timer(stay_on_platform_time_limit, false), "timeout")
@@ -163,6 +174,5 @@ func apply_gravity(delta):
 func point_paw_at(_direction: Vector2):
 	_paw.look_at(position + _weapon.get_node("ShootPosition").global_position.direction_to(_direction))
 #	_paw.rotation_degrees += -90
-
 func take_damage(dmg: int):
 	print("Player took dmg, ", dmg)
