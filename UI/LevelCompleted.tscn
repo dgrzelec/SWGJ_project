@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/KillCount.gd" type="Script" id=1]
+
+[node name="LevelCompleted" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.2, 0.298039, 0.309804, 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -56.0
+margin_top = 248.0
+margin_right = 67.0
+margin_bottom = 262.0
+text = "Mission completed"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 1224.0
+margin_top = 576.0
+margin_right = 1320.0
+margin_bottom = 596.0
+text = "Next Mission"
+
+[node name="KillCount" type="Label" parent="."]
+margin_left = 760.0
+margin_top = 320.0
+margin_right = 835.0
+margin_bottom = 334.0
+text = "placeholder"
+script = ExtResource( 1 )

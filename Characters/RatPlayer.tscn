@@ -411,6 +411,7 @@ position = Vector2( 0, -104 )
 shape = SubResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
 anims/RESET = SubResource( 10 )
 anims/idle = SubResource( 14 )
 anims/running = SubResource( 11 )
