@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Weapons/Weapon.gd" type="Script" id=1]
+[ext_resource path="res://Weapons/BaseWeapon.gd" type="Script" id=1]
 [ext_resource path="res://art/weapons/base_weapon.png" type="Texture" id=2]
 
-[node name="Weapon" type="Sprite"]
+[node name="BaseWeapon" type="Sprite"]
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )

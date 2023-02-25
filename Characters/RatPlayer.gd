@@ -65,7 +65,7 @@ func get_input():
 	
 	if Input.is_action_pressed("shoot"):
 		
-		_weapon._process()
+		_weapon.shoot()
 
 func _physics_process(delta):
 	get_input()
