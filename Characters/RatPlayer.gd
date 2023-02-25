@@ -174,5 +174,6 @@ func apply_gravity(delta):
 func point_paw_at(_direction: Vector2):
 	_paw.look_at(position + _weapon.get_node("ShootPosition").global_position.direction_to(_direction))
 #	_paw.rotation_degrees += -90
+
 func take_damage(dmg: int):
 	print("Player took dmg, ", dmg)

@@ -1,6 +1,54 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Levels/Level.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Platforms/BasicPlatform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Characters/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Characters/RatPlayer.tscn" type="PackedScene" id=4]
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
+
+[node name="SpawnLocationContainer" type="Node" parent="."]
+
+[node name="Position2D" type="Position2D" parent="SpawnLocationContainer"]
+position = Vector2( 723, 801 )
+
+[node name="Position2D2" type="Position2D" parent="SpawnLocationContainer"]
+position = Vector2( 1062, 795 )
+
+[node name="Position2D3" type="Position2D" parent="SpawnLocationContainer"]
+position = Vector2( 157, 567 )
+
+[node name="Position2D4" type="Position2D" parent="SpawnLocationContainer"]
+position = Vector2( 722, 568 )
+
+[node name="Position2D5" type="Position2D" parent="SpawnLocationContainer"]
+position = Vector2( 1061, 560 )
+
+[node name="Position2D6" type="Position2D" parent="SpawnLocationContainer"]
+position = Vector2( 1421, 559 )
+
+[node name="Position2D7" type="Position2D" parent="SpawnLocationContainer"]
+position = Vector2( 1426, 792 )
+
+[node name="PlatformContainer" type="Node" parent="."]
+
+[node name="Platforms" parent="PlatformContainer" instance=ExtResource( 2 )]
+
+[node name="PlayerSpawnPoint" type="Position2D" parent="."]
+position = Vector2( 39, 788 )
+
+[node name="EnemyContainer" type="Node" parent="."]
+physics_interpolation_mode = 2
+
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 331, 284 )
+
+[node name="RatPlayer" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1144, 373 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 30.0
+margin_top = 32.0
+margin_right = 70.0
+margin_bottom = 46.0
