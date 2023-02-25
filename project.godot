@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Characters/PlatformerPlayer.gd"
+"path": "res://Characters/RatPlayer.gd"
 }, {
 "base": "Node",
 "class": "Weapon",
