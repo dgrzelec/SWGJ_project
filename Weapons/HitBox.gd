@@ -1,10 +1,11 @@
-# Detected by HitBox
+# Detected by HurtBox
 extends Area2D
 
 class_name HitBox, "HitBox.svg"
 
 export var damage := 10
 
+signal hit
 
 func _init() -> void:
 	collision_mask = 0

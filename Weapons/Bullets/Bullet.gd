@@ -25,13 +25,15 @@ func _ready():
 	timer.connect("timeout", self, "queue_free")
 	timer.start(lifetime)
 	
-	impact_detector.connect("body_entered", self, "_on_impact")
+#	impact_detector.connect("body_entered", self, "_on_impact")
+	hitbox.connect("hit", self, "_on_impact")
 
-	
 
 func _physics_process(delta: float):
 	position += direction * speed * delta
 	
 
-func _on_impact(_body: Node) -> void:
+func _on_impact() -> void:
+#	if _body is Player:
+#		return
 	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://art/RatPlayer/rat_less4.png" type="Texture" id=1]
 [ext_resource path="res://Characters/RatPlayer.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://art/RatPlayer/front_paw.png" type="Texture" id=9]
 [ext_resource path="res://art/RatPlayer/rat_less_1_3.png" type="Texture" id=10]
 [ext_resource path="res://art/RatPlayer/rat_1.png" type="Texture" id=11]
+[ext_resource path="res://Weapons/PlayerHurtBox.gd" type="Script" id=12]
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
@@ -433,7 +434,12 @@ tracks/5/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="CapsuleShape2D" id=16]
+radius = 52.0
+height = 154.0
+
 [node name="RatPlayer" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Node2D" parent="."]
@@ -443,7 +449,7 @@ scale = Vector2( 1.5, 1.5 )
 position = Vector2( 0, -104 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 9 )
-animation = "running"
+animation = "idle"
 centered = false
 offset = Vector2( -550, -480 )
 __meta__ = {
@@ -451,17 +457,20 @@ __meta__ = {
 }
 
 [node name="BackPaw" type="Sprite" parent="Sprite/BodySprite"]
+visible = false
 show_behind_parent = true
 position = Vector2( 72, 0 )
 texture = ExtResource( 4 )
 offset = Vector2( -125, 0 )
 
 [node name="FrontPaw" type="Sprite" parent="Sprite/BodySprite"]
+visible = false
 position = Vector2( -32, 0 )
 texture = ExtResource( 9 )
 offset = Vector2( -25, 20 )
 
 [node name="Weapon" parent="Sprite/BodySprite/FrontPaw" instance=ExtResource( 3 )]
+visible = false
 show_behind_parent = true
 position = Vector2( -18.7837, 193.74 )
 rotation = 2.09439
@@ -479,3 +488,10 @@ anims/idle_with_weapon = SubResource( 15 )
 anims/running = SubResource( 11 )
 anims/running_no_weapon = SubResource( 12 )
 anims/running_with_weapon = SubResource( 13 )
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2( 0, -130 )
+shape = SubResource( 16 )

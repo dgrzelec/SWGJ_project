@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/Enemy.gd"
 }, {
-"base": "EditorVCSInterface",
+"base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
@@ -76,6 +76,7 @@ config/icon="res://icon.png"
 window/size/width=1600
 window/size/height=900
 window/size/resizable=false
+window/size/always_on_top=true
 window/size/test_width=720
 window/size/test_height=480
 window/stretch/mode="2d"
@@ -117,6 +118,14 @@ interact={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Game_world"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemies"
+2d_physics/layer_4="player_bullets"
+2d_physics/layer_5="enemy_bullets"
 
 [physics]
 

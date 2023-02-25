@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Characters/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://Weapons/HurtBox.gd" type="Script" id=2]
+[ext_resource path="res://Weapons/EnemyHurtBox.gd" type="Script" id=2]
 [ext_resource path="res://art/stick_man/animations1.png" type="Texture" id=3]
+[ext_resource path="res://Weapons/BaseWeapon.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 55.5, 104 )
+extents = Vector2( 40.5, 104 )
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 36.0
@@ -20,16 +21,20 @@ texture = ExtResource( 3 )
 hframes = 9
 vframes = 5
 
+[node name="Weapon" parent="Sprite" instance=ExtResource( 4 )]
+position = Vector2( -212, 0 )
+rotation = 0.785397
+scale = Vector2( -0.3, 0.3 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 6.5, 24 )
+position = Vector2( 0, 24 )
 shape = SubResource( 1 )
 
 [node name="HurtBox" type="Area2D" parent="."]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2( 4, 28 )
+position = Vector2( 0, 24 )
 shape = SubResource( 2 )

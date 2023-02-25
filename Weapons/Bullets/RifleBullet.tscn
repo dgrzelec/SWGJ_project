@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Weapons/Bullets/RifleBullet.gd" type="Script" id=1]
 [ext_resource path="res://Weapons/HitBox.gd" type="Script" id=2]
 [ext_resource path="res://art/weapons/bullet.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 19.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 18.0
+height = 19.9999
 
 [node name="RiffleBullet" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,12 +17,24 @@ script = ExtResource( 1 )
 [node name="HitBox" type="Area2D" parent="."]
 script = ExtResource( 2 )
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2( 7, 0 )
+rotation = 1.57079
+shape = SubResource( 1 )
+
+[node name="ImpactDetector" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ImpactDetector"]
+position = Vector2( 7, 0 )
+rotation = 1.57079
+shape = SubResource( 2 )
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 6, -1 )
 scale = Vector2( 0.05, 0.05 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -60 )
-
-[node name="ImpactDetector" type="Area2D" parent="."]
 
 [node name="Timer" type="Timer" parent="."]

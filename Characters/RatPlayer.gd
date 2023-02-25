@@ -10,6 +10,7 @@ onready var _weapon = $Sprite/BodySprite/FrontPaw/Weapon
 onready var _paw = $Sprite/BodySprite/FrontPaw
 
 const bullet = preload("res://Weapons/Bullets/RifleBullet.tscn")
+const bullet_layer = 8
 #states
 var jumping = false
 var midair = false
@@ -43,8 +44,11 @@ var flip_sprite = false
 var left_platform_time = 0.0
 var jump_time = 0.0
 
+var health_points = 100
+
 func _ready():
 	_weapon.set_bullet_type(bullet)
+	_weapon.set_bullet_layer(bullet_layer)
 	if has_weapon:
 		_animation_player.play("idle_with_weapon")
 	else:
@@ -168,5 +172,8 @@ func apply_gravity(delta):
 
 #animating paw
 func point_paw_at(_direction: Vector2):
-	_paw.look_at(_weapon.get_node("ShootPosition").global_position.direction_to(_direction))
-	_paw.rotation_degrees += -90
+	_paw.look_at(position + _weapon.get_node("ShootPosition").global_position.direction_to(_direction))
+#	_paw.rotation_degrees += -90
+
+func take_damage(dmg: int):
+	print("Player took dmg, ", dmg)

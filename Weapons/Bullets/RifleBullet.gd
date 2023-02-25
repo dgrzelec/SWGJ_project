@@ -4,5 +4,5 @@ extends Bullet
 # so there is no need to call them explicitly when overloading them
 func _ready(): 
 	
-	speed = 400
+	speed = 800
 	hitbox.damage = 13.0
