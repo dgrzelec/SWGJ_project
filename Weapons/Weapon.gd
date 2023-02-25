@@ -10,6 +10,9 @@ onready var animation_player = $AnimationPlayer
 var shoot_dir = Vector2.ZERO #has to be updated from players side
 
 var _bullet_layer = 0
+var can_fire=true
+var firerate = 0.5
+
 
 
 func _ready():
@@ -24,12 +27,17 @@ func set_bullet_type(bullet: PackedScene):
 	current_bullet = bullet
 	
 func shoot():
-	var bullet_instance = current_bullet.instance()
-	bullet_instance.position = shoot_pos.global_position
-	bullet_instance.direction = shoot_dir
-	bullet_instance.get_node("HitBox").collision_layer = _bullet_layer
-	add_child(bullet_instance)
-	
+	if can_fire == true:
+		can_fire = false 
+		var bullet_instance = current_bullet.instance()
+		bullet_instance.position = shoot_pos.global_position
+		bullet_instance.direction = shoot_dir
+		bullet_instance.get_node("HitBox").collision_layer = _bullet_layer
+		add_child(bullet_instance)
+		yield(get_tree().create_timer(firerate),"timeout")
+		can_fire = true
+		
+		
 func shoot_bullet(bullet: PackedScene):
 	var bullet_instance = bullet.instance()
 	bullet_instance.position = shoot_pos.global_position
