@@ -3,7 +3,7 @@ extends Node
 class_name Weapon
 
 var current_bullet:PackedScene  = null
-onready var sprite = $Sprite
+
 onready var shoot_pos = $ShootPosition
 onready var animation_player = $AnimationPlayer
 
