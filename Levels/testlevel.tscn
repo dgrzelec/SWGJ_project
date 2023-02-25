@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Characters/PlatformerPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/testlevel.gd" type="Script" id=2]
+[ext_resource path="res://Characters/Enemy.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 708.5, 10 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 373, 838 )
+script = ExtResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -16,3 +19,5 @@ shape = SubResource( 1 )
 
 [node name="PlatformerPlayer" parent="." instance=ExtResource( 1 )]
 position = Vector2( 165, -95 )
+
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
